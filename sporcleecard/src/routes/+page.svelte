@@ -3,6 +3,8 @@
     import { cubicInOut, quintOut } from "svelte/easing";
     import { draw, fly, scale, slide } from "svelte/transition";
 
+    import map from "$lib/assets/world-map.jpeg";
+
     let toggle = $state(false);
 
     let poem_rows = [
@@ -136,6 +138,26 @@
     #table td:last-child {
         background-color: white;
     }
+
+    #map-container {
+        position: relative;
+    }
+
+    img {
+        height: 100%;
+        margin-bottom: 30px;
+        display: block;
+    }
+
+    #country-text {
+        position: absolute;
+        background-color: #1d5736;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        top: 50%;
+        left: 50%;
+    }
 </style>
 
 {#if toggle}
@@ -168,7 +190,17 @@
             {/if}
             {#if page == 2}
             <div id="page" in:slide={{ delay:1000 }} out:slide>
-                
+                <div id="map-container">
+                    <img src={map} alt="World Map" />
+                    <p id="country-text" style="transform: translate(-350px, -225px)" in:fly={{ y:20, delay:1000, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>you</p>
+                    <p id="country-text" style="transform: translate(-275px, 25px)" in:fly={{ y:20, delay:1800, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>taught</p>
+                    <p id="country-text" style="transform: translate(-90px, -160px)" in:fly={{ y:20, delay:2600, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>me</p>
+                    <p id="country-text" style="transform: translate(-25px, -110px)" in:fly={{ y:20, delay:3400, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>my</p>
+                    <p id="country-text" style="transform: translate(150px, -110px)" in:fly={{ y:20, delay:4200, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>way</p>
+                    <p id="country-text" style="transform: translate(250px, -65px)" in:fly={{ y:20, delay:5000, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>in</p>
+                    <p id="country-text" style="transform: translate(290px, 5px)" in:fly={{ y:20, delay:5800, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>the</p>
+                    <p id="country-text" style="transform: translate(325px, 120px)" in:fly={{ y:20, delay:6600, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>world</p>
+                </div>
             </div>
             {/if}
             <div id="buttons">
