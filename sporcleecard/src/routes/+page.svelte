@@ -16,21 +16,25 @@
     ]
 
     let page = $state(0);
-    let pagesEnd = 1;
+    let pagesEnd = 2;
 
     let buttonActive = $state(0);
 
     let visibleRows = $state(new Set());
 
+    function addRows() {
+        poem_rows.forEach((_, i) => {
+            setTimeout(() => {
+                visibleRows = new Set(visibleRows).add(i);
+            }, i * 1500)
+        }); 
+    };
+
     function clickLeft() {
         if (page == 2) {
-            page--;
             visibleRows = new Set();
-            poem_rows.forEach((_, i) => {
-                setTimeout(() => {
-                    visibleRows = new Set(visibleRows).add(i);
-                }, i * 1500)
-            }); 
+            page--;
+            setTimeout(addRows, 1600);
         } else {
             page--;
         }
@@ -38,13 +42,9 @@
 
     function clickRight() {
         if (page == 0) {
-            page++;
             visibleRows = new Set();
-            poem_rows.forEach((_, i) => {
-                setTimeout(() => {
-                    visibleRows = new Set(visibleRows).add(i);
-                }, i * 1500)
-            }); 
+            page++;
+            setTimeout(addRows, 1600);
         } else {
             page++;
         }
@@ -166,15 +166,20 @@
                 </table>
             </div>
             {/if}
+            {#if page == 2}
+            <div id="page" in:slide={{ delay:1000 }} out:slide>
+                
+            </div>
+            {/if}
             <div id="buttons">
                 {#if page > 0}
                 <button class:on={buttonActive == 1} onclick={clickLeft}>
-                    <span translate="no" class="material-symbols-outlined">arrow_circle_left</span>
+                    <span translate="no" class="material-symbols-outlined">keyboard_double_arrow_left</span>
                 </button>
                 {/if}
                 {#if page < pagesEnd}
                 <button class:on={buttonActive == 2} onclick={clickRight}>
-                    <span translate="no" class="material-symbols-outlined">arrow_circle_right</span>
+                    <span translate="no" class="material-symbols-outlined">keyboard_double_arrow_right</span>
                 </button>
                 {/if}
             </div>

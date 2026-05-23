@@ -535,9 +535,9 @@
 			"license": "MIT"
 		},
 		"node_modules/@types/node": {
-			"version": "25.9.1",
-			"resolved": "https://registry.npmjs.org/@types/node/-/node-25.9.1.tgz",
-			"integrity": "sha512-xfrlY7UD5rMJk3ZVJP8BNzS28J36YJg+xp+LPXV1TdWxr8uMH5A860QNxYDGQe/ylDSgjxE52Q9VnO7p75tJxg==",
+			"version": "25.9.0",
+			"resolved": "https://registry.npmjs.org/@types/node/-/node-25.9.0.tgz",
+			"integrity": "sha512-AOQwYUNolgy3VosiRqXrACUXTN8nJUtPl7FJXMqZVyxiiCLhQuG3jXKvCS1ALr+Y2OmZhzzLVlYPEqJaiqkaJQ==",
 			"dev": true,
 			"license": "MIT",
 			"dependencies": {
@@ -1060,9 +1060,9 @@
 			}
 		},
 		"node_modules/postcss": {
-			"version": "8.5.15",
-			"resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.15.tgz",
-			"integrity": "sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==",
+			"version": "8.5.14",
+			"resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.14.tgz",
+			"integrity": "sha512-SoSL4+OSEtR99LHFZQiJLkT59C5B1amGO1NzTwj7TT1qCUgUO6hxOvzkOYxD+vMrXBM3XJIKzokoERdqQq/Zmg==",
 			"dev": true,
 			"funding": [
 				{
@@ -1080,7 +1080,7 @@
 			],
 			"license": "MIT",
 			"dependencies": {
-				"nanoid": "^3.3.12",
+				"nanoid": "^3.3.11",
 				"picocolors": "^1.1.1",
 				"source-map-js": "^1.2.1"
 			},
@@ -1182,9 +1182,9 @@
 			}
 		},
 		"node_modules/svelte": {
-			"version": "5.55.8",
-			"resolved": "https://registry.npmjs.org/svelte/-/svelte-5.55.8.tgz",
-			"integrity": "sha512-4D6lyrMHmDaZalQOEBMCWCCidyZjSnec14/oPn0k627G6goxcck9xqMwz1tFLlQz+ZFvtTTHfFOlUayuAz0z6Q==",
+			"version": "5.55.7",
+			"resolved": "https://registry.npmjs.org/svelte/-/svelte-5.55.7.tgz",
+			"integrity": "sha512-ymI5ykLPwIHW839E053FQbI1G+jnRFJEw3Kv5Y4njixVWywQBx+NUFpkkKyk5LIb36Fg9DVXSYpqiGekLD0hyw==",
 			"dev": true,
 			"license": "MIT",
 			"dependencies": {
