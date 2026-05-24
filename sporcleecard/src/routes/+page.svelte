@@ -18,11 +18,12 @@
     ]
 
     let page = $state(0);
-    let pagesEnd = 2;
+    let pagesEnd = 4;
 
     let buttonActive = $state(0);
 
     let visibleRows = $state(new Set());
+    let ansColour = $state('white');
 
     function addRows() {
         poem_rows.forEach((_, i) => {
@@ -37,6 +38,12 @@
             visibleRows = new Set();
             page--;
             setTimeout(addRows, 1600);
+        } else if (page == 5 || page == 4) {
+            ansColour = 'white';
+            setTimeout(() => {
+                ansColour = '#4faf46';
+            }, 2000)
+            page--;
         } else {
             page--;
         }
@@ -47,6 +54,12 @@
             visibleRows = new Set();
             page++;
             setTimeout(addRows, 1600);
+        } else if (page == 2 || page == 3) {
+            ansColour = 'white';
+            setTimeout(() => {
+                ansColour = '#4faf46';
+            }, 2000)
+            page++;
         } else {
             page++;
         }
@@ -102,6 +115,7 @@
     #page h2 {
         margin-left: 30px;
         margin-right: 30px;
+        text-align: center;
     }
 
     #buttons {
@@ -158,6 +172,20 @@
         top: 50%;
         left: 50%;
     }
+
+    #anstable {
+        width: 400px;
+        height: 150px;
+        border-spacing: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #anstable td {
+        width: 50%;
+        text-align: center;
+        background-color: white;
+    }
 </style>
 
 {#if toggle}
@@ -201,6 +229,40 @@
                     <p id="country-text" style="transform: translate(290px, 5px)" in:fly={{ y:20, delay:5800, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>the</p>
                     <p id="country-text" style="transform: translate(325px, 120px)" in:fly={{ y:20, delay:6600, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>world</p>
                 </div>
+            </div>
+            {/if}
+            {#if page == 3}
+            <div id="page" in:slide={{ delay:1000 }} out:slide>
+                <h2>Together we travelled the...</h2>
+                <table id="anstable">
+                    <tbody>
+                        <tr>
+                            <td>Country</td>
+                            <td style:background-color={ansColour}>World</td>
+                        </tr>
+                        <tr>
+                            <td>Road</td>
+                            <td>Ocean</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {/if}
+            {#if page == 4}
+            <div id="page" in:slide={{ delay:1000 }} out:slide>
+                <h2>My gratitude to you is...</h2>
+                <table id="anstable">
+                    <tbody>
+                        <tr>
+                            <td style:background-color={ansColour}>Immense</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>What gratitude?</td>
+                            <td>Small</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             {/if}
             <div id="buttons">
