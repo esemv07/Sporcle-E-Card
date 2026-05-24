@@ -4,6 +4,14 @@
     import { draw, fly, scale, slide } from "svelte/transition";
 
     import map from "$lib/assets/world-map.jpeg";
+    import heart from "$lib/assets/heart.svg";
+    import globe from "$lib/assets/globe.svg";
+    import flag from "$lib/assets/country-flag.svg";
+    import atlas from "$lib/assets/map-book.svg";
+    import foldmap from "$lib/assets/map-icon.svg";
+    import searchmap from "$lib/assets/search-map.svg";
+
+
 
     let toggle = $state(false);
 
@@ -18,7 +26,7 @@
     ]
 
     let page = $state(0);
-    let pagesEnd = 4;
+    let pagesEnd = 6;
 
     let buttonActive = $state(0);
 
@@ -186,6 +194,21 @@
         text-align: center;
         background-color: white;
     }
+
+    #imgtable {
+        width: 250px;
+        height: 300px;
+        border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+    }
+
+    #imgtable td {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
 </style>
 
 {#if toggle}
@@ -194,6 +217,7 @@
             {#if page == 0}
             <div id="page" in:slide={{ delay:1000 }} out:slide>
                 <h2>Sporcle my beloved,</h2>
+                <img src={globe} width="90px" height="auto" style="margin-left: auto; margin-right: auto;" alt="globe" />
             </div>
             {/if}
             {#if page == 1}
@@ -214,6 +238,8 @@
                         {/each}
                     </tbody>
                 </table>
+                <img src={foldmap} width="150px" height="auto" style="position: fixed; bottom: 0px; left: 400px; transform: rotate(20deg);" alt="map" />
+                <img src={flag} width="150px" height="auto" style="position: fixed; bottom: 0px; right: 400px; transform: rotate(-20deg);" alt="map" />
             </div>
             {/if}
             {#if page == 2}
@@ -246,6 +272,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <img src={searchmap} width="80px" height="auto" style="margin-top: 20px; margin-left: auto; margin-right: auto; transform: rotate(-20deg)" alt="search map" />
             </div>
             {/if}
             {#if page == 4}
@@ -263,6 +290,30 @@
                         </tr>
                     </tbody>
                 </table>
+                <img src={atlas} width="80px" height="auto" style="margin-top: 20px; margin-left: auto; margin-right: auto; transform: rotate(-20deg)" alt="atlas" />
+            </div>
+            {/if}
+            {#if page == 5}
+            <div id="page" in:slide={{ delay:1000 }} out:slide>
+                <h2>So now all there is to say is...</h2>
+                <table id="imgtable">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img style:margin="auto" src={heart} alt="Heart" width="90%" height="auto"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td in:fly={{ y:20, delay:2000, duration:600, easing:quintOut }} out:fly={{ y:20, duration:400 }}>THANKS!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {/if}
+            {#if page == 6}
+            <div id="page" in:slide={{ delay:1000 }} out:slide>
+                <h2>Love esemv &lt;3</h2>
+                <img src={flag} width="60px" height="auto" style="margin-left: auto; margin-right: auto; transform: rotate(20deg)" alt="flag" />
             </div>
             {/if}
             <div id="buttons">
