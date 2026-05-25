@@ -78,6 +78,11 @@
     });
 </script>
 <style>
+    @font-face {
+        font-family: 'Futura';
+        src: url('/futura-pt/FuturaCyrillicBook.ttf');
+    }
+
     #card {
         position: fixed;
         background-color: #eddfd6;
@@ -108,12 +113,14 @@
     }
 
     #content {
+        font-family: 'Love';
         position: relative;
         width: 100%;
         height: 100%;
     }
 
     #page {
+        font-family: cursive;
         position: absolute;
         transform: translate(-50%, -50%);
         top: 50%;
@@ -121,6 +128,7 @@
     }
 
     #page h2 {
+        font-family: 'Futura';
         margin-left: 30px;
         margin-right: 30px;
         text-align: center;
